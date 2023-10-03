@@ -25,7 +25,6 @@ public class StudentRepository {
             list=pairHashMap.get(teacher);
         }else{
             list = new ArrayList<>();
-            //list.add(teacher);
         }
         list.add(student);
         pairHashMap.put(teacher,list);
