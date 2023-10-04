@@ -27,6 +27,10 @@ public class StudentRepository {
             list = new ArrayList<>();
         }
         list.add(student);
+
+        int noOfStudent = teacherHashMap.get(teacher).getNumberOfStudents();
+        int age = teacherHashMap.get(teacher).getAge()+1;
+        teacherHashMap.put(teacher , new Teacher(teacher,noOfStudent,age));
         pairHashMap.put(teacher,list);
     }
     public List<Student> getAllStudents(){
@@ -59,6 +63,15 @@ public class StudentRepository {
                 teacherHashMap.remove(key);
             }
         }
+        for(String key : pairHashMap.keySet()){
+            if(pairHashMap.containsKey(teacher)){
+                pairHashMap.remove(key);
+            }
+        }
     }
 
+    public void deleteAllTeacher() {
+        teacherHashMap.clear();
+        pairHashMap.clear();
+    }
 }
